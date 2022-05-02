@@ -1,13 +1,10 @@
 
-
 library(ggplot2)
 library(dplyr)
 library(stringr)
 
-
 #Helper Functions
 #----
-
 #a function to make an rgb color object by entering a hex code
 hex <- function(hexCode){
   
@@ -19,26 +16,30 @@ hex <- function(hexCode){
   
   return(rgb(t(col2rgb(u)), maxColorValue = 255))
 }
-
+#----
 
 #Color Constants
 #----
-#Basic colors
+#Orange Juice Theme Colors
 oj <- c(
+  orange0 = hex("fff0e3"),
   orange1 = hex("ffd0aa"),
   orange2 = hex("ffb98a"),
   orange3 = hex("ff975b"),
   orange4 = hex("ff7a33"),
   orange5 = hex("ff5500"),
+  orangeK = hex("471800"),
   
+  blue0 = hex("d9f7ff"),
   blue1 = hex("9eeaff"),
   blue2 = hex("7aceff"),
   blue3 = hex("4dabff"),
   blue4 = hex("1c85ff"),
-  blue5 = hex("006fff")
-  
-)
+  blue5 = hex("006fff"),
+  blueK = hex("002c66")
+  )
 
+#Blackboard Theme Colors
 blkboard <- c(
   orange = hex("#ffa182"),
   yellow = hex("#e9ff7d"),
@@ -47,8 +48,7 @@ blkboard <- c(
   purple = hex("#cb6bff"),
   greyDk = hex("#404040"),
   greyLt = hex("#545454")
-  
-)
+  )
 
 #JM Baseball Notebook Colors
 #(from my website https://jmbaseballnotebook.com)
@@ -64,8 +64,7 @@ jmbn <- c(
   mauve = hex("#826579"),
   periwinkle = hex("#a3afff"),
   navy = hex("#3d447d")
-)
-
+  )
 
 #Red Rock Canyon Colors
 #(from a photo of Red Rock Canyon, outside Las Vegas)
@@ -85,6 +84,10 @@ redrock <- c(
   cloud = hex("#9aa7af"),
   sky = hex("#3874a2"),
   night = hex("#1b456b")
-)
+  )
 
 #----
+
+#easy way to access a single color constant v["colorName"]
+
+
