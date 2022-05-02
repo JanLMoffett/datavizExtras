@@ -86,6 +86,17 @@ redrock <- c(
   night = hex("#1b456b")
   )
 
+#IBM Colorblind Accessible Palette from
+#https://davidmathlogic.com/colorblind/
+
+ibm <- c(
+  blue = hex("648fff"),
+  purple = hex("785ef0"),
+  pink = hex("dc267f"),
+  orange = hex("fe6100"),
+  yellow = hex("ffb000")
+)
+
 #----
 
 #easy way to access a single color constant v["colorName"]
