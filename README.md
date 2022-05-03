@@ -49,7 +49,7 @@ Colors, Themes and Functions to use with ggplot2 for R.
 
 **hex(hexCode)** - a function that takes a six-digit hex code and returns an rgb color object.
 
-**transpa(colorObject, alpha1to255)** - a function that takes an rgb color object and an integer between 1 (0% opacity) and 255 (100% opacity), and returns a transparent version of the same color.  
+**transpa(colorObject, alpha1to255)** - a function that takes an rgb color object and an integer between 0 (0% opacity) and 255 (100% opacity), and returns a transparent version of the same color.  
 
 **see_colors(aColorVector, buffer = 1, numCols = 3)** - a function that takes a vector of colors, named or unnamed, and produces a plot showing the colors and their hex values.
 
