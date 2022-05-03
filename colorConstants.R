@@ -88,7 +88,6 @@ redrock <- c(
 
 #IBM Colorblind Accessible Palette from
 #https://davidmathlogic.com/colorblind/
-
 ibm <- c(
   blue = hex("648fff"),
   purple = hex("785ef0"),
