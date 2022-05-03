@@ -1,74 +1,39 @@
 
 library(ggplot2)
 library(dplyr)
+library(stringr)
 
-#Color Constants
+source("colorConstants.R")
+source("extraThemes.R")
+
+
+#Helper Functions
 #----
-#Basic colors
-basic <- c(
-  orangeDark = rgb(t(col2rgb("#000000")), maxColorValue = 255),
-  orangeFire = rgb(t(col2rgb("#000000")), maxColorValue = 255),
-  orangeBright = rgb(t(col2rgb("#000000")), maxColorValue = 255),
-  orangeLight = rgb(t(col2rgb("#000000")), maxColorValue = 255),
-  orangePale = rgb(t(col2rgb("#000000")), maxColorValue = 255),
-  
-  blueDark = rgb(t(col2rgb("#000000")), maxColorValue = 255),
-  blueNeon = rgb(t(col2rgb("#000000")), maxColorValue = 255),
-  blueBright = rgb(t(col2rgb("#000000")), maxColorValue = 255),
-  blueLight = rgb(t(col2rgb("#000000")), maxColorValue = 255),
-  bluePale = rgb(t(col2rgb("#000000")), maxColorValue = 255)
-  
-  )
 
-blkboard <- c(
-  orange = rgb(t(col2rgb("#ffa182")), maxColorValue = 255),
-  yellow = rgb(t(col2rgb("#e9ff7d")), maxColorValue = 255),
-  green = rgb(t(col2rgb("#61ff90")), maxColorValue = 255),
-  blue = rgb(t(col2rgb("#12ccff")), maxColorValue = 255),
-  purple = rgb(t(col2rgb("#cb6bff")), maxColorValue = 255),
-  greyDk = rgb(t(col2rgb("#404040")), maxColorValue = 255),
-  greyLt = rgb(t(col2rgb("#545454")), maxColorValue = 255)
+#a function to make an rgb color object by entering a hex code
+hex <- function(hexCode){
   
-)
+  u <- as.character(hexCode)
+  #make sure input is six digits long, letters and numbers only
+  u <- str_remove(u, "[:punct:]")
+  u <- str_sub(u, 1, 6)
+  u <- paste0("#", u)
+  
+  return(rgb(t(col2rgb(u)), maxColorValue = 255))
+}
 
-#Colors from my website
-jmbn <- c(
-  hunter = rgb(t(col2rgb("#21332a")), maxColorValue = 255),
-  turf = rgb(t(col2rgb("#375949")), maxColorValue = 255),
-  mint = rgb(t(col2rgb("#8fffc9")), maxColorValue = 255),
-  
-  turquoise = rgb(t(col2rgb("#33ccb8")), maxColorValue = 255),
-  highlighter = rgb(t(col2rgb("#c2ff0a")), maxColorValue = 255),
-  rose = rgb(t(col2rgb("#ff9ce0")), maxColorValue = 255),
-  
-  blush = rgb(t(col2rgb("#e6dfe3")), maxColorValue = 255),
-  thistle = rgb(t(col2rgb("#e3c1d8")), maxColorValue = 255),
-  mauve = rgb(t(col2rgb("#826579")), maxColorValue = 255),
-  
-  periwinkle = rgb(t(col2rgb("#a3afff")), maxColorValue = 255),
-  navy = rgb(t(col2rgb("#3d447d")), maxColorValue = 255)
-)
+#Transparent Color Functions
+#----
 
+#make any color object transparent
+transpa <- function(colorObject, alpha1to255){
+  return(rgb(t(col2rgb(colorObject)), maxColorValue = 255, alpha = alpha1to255))
+}
 
-#Red Rock Canyon Colors
-redrock <- c(
-  mud = rgb(t(col2rgb("#763f28")), maxColorValue = 255),
-  cocoa = rgb(t(col2rgb("#7f5541")), maxColorValue = 255),
-  stone = rgb(t(col2rgb("#e8cfb9")), maxColorValue = 255),
-  
-  sand = rgb(t(col2rgb("#c6997a")), maxColorValue = 255),
-  cinnamon = rgb(t(col2rgb("#c08566")), maxColorValue = 255),
-  terracotta = rgb(t(col2rgb("#bf704f")), maxColorValue = 255),
-  
-  moss = rgb(t(col2rgb("#524735")), maxColorValue = 255),
-  cactus = rgb(t(col2rgb("#797236")), maxColorValue = 255),
-  yucca = rgb(t(col2rgb("#c4ad50")), maxColorValue = 255),
-  
-  cloud = rgb(t(col2rgb("#9aa7af")), maxColorValue = 255),
-  sky = rgb(t(col2rgb("#3874a2")), maxColorValue = 255),
-  night = rgb(t(col2rgb("#1b456b")), maxColorValue = 255)
-)
+#----
 
+#Plotting functions
+#----
 #function to demo colors in plot window
 see_colors <- function(aColorVector, buffer = 1, numCols = 3){
   
@@ -129,34 +94,35 @@ plot_colors <- function(aColorVector, buffer = 1, numCols = 3){
   return(plot1)
 }
 
-#examples:
+#----
+
+
+#Examples
+#----
+
+#Demonstrating see_colors function with included colors
+see_colors(oj, numCols = 7)
 see_colors(redrock)
-see_colors(jmbn)
+see_colors(jmbn, buffer = 2)
 see_colors(blkboard, numCols = 2)
+see_colors(ibm)
 
-plot_colors(redrock) + theme_bw() #this overrides the void theme
+#The plot_colors function is the same as see_colors, but returns the ggplot object so you can
+#  override the theme, add more layers, etc.
+plot_colors(redrock, numCols = 2) + sandstone #this overrides the void theme
 
-  
-  
+#Example using the transpa function
+colorX <- oj["orange5"] #easy way to access a single color constant v["colorName"]
+colorXT200 <- transpa(colorX, 200)
+colorXT100 <- transpa(colorX, 100)
+colorXT50 <- transpa(colorX, 50)
 
+v <- c(colorX, 
+       "alpha200" = colorXT200,
+       "alpha100" = colorXT100,
+       "alpha50" = colorXT50)
 
-
-
-
-#----
-
-#Transparent Color Functions
-#----
-clrt_red <- function(alphaLvl = 128){rgb(,maxColorValue = 255, alpha = alphaLvl)}
-clrt_orange <- function(alphaLvl){}
-
-
-#----
-
-
-#ggplot2 Themes
-#----
-
-
+plot_colors(v, numCols = 4) + juiceGlass
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
 #----
 
