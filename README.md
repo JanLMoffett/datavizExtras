@@ -27,13 +27,23 @@ Colors, Themes and Functions to use with ggplot2 for R.
 
 **juiceGlass** - a ggplot2 theme; a clean, light blue theme that goes well with orange.
 
+<img src="exampleHist_juiceglass.png" width="200">
+
 **napkin** - a ggplot2 theme; a mostly white minimalist theme.
+
+<img src="exampleHist_napkin.png" width="200">
 
 **sandstone** - a ggplot2 theme; a theme for the redrock color scheme.
 
+<img src="exampleHist_sandstone.png" width="200">
+
 **dustyBlk** - a ggplot2 theme; a theme for the blkboard color scheme.
 
+<img src="exampleHist_dustyBlk.png" width="200">
+
 **digiturf** - a ggplot2 theme; a theme for the jmbn color scheme.
+
+<img src="exampleHist_digiturf.png" width="200">
 
 ## [datavizExtras.R](datavizExtras.R)
 
