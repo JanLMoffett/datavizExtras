@@ -3,8 +3,8 @@ library(ggplot2)
 library(dplyr)
 library(stringr)
 
-source("colorConstants.R")
-source("extraThemes.R")
+#source("colorConstants.R")
+#source("extraThemes.R")
 
 
 #Helper Functions
@@ -102,10 +102,6 @@ plot_colors <- function(aColorVector, buffer = 1, numCols = 3){
 
 #Demonstrating see_colors function with included colors
 see_colors(oj, numCols = 7)
-see_colors(redrock)
-see_colors(jmbn, buffer = 2)
-see_colors(blkboard, numCols = 2)
-see_colors(ibm)
 
 #The plot_colors function is the same as see_colors, but returns the ggplot object so you can
 #  override the theme, add more layers, etc.
@@ -125,4 +121,172 @@ v <- c(colorX,
 plot_colors(v, numCols = 4) + juiceGlass
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
 #----
+
+#Example plots to demonstrate themes and color schemes
+#----
+
+#working with the diamonds dataset included in ggplot2 package
+d <- ggplot2::diamonds
+d.index <- dim(d)[1]
+#taking random sample to reduce size of dataset
+set.seed(953)
+d.index <- sample(d.index, size = 10000)
+d <- d[d.index,]
+
+#Histogram examples
+#----
+myLabs <- labs(title = "Distribution of Diamond Prices",
+               subtitle = "A sample of observations from diamonds data",
+               caption = "Data Source: ggplot2::diamonds",
+               tag = "Fig 1.1",
+               x = "Price (USD)",
+               y = "Count")
+
+q <- ggplot(d) + myLabs
+
+#Orange Juice color scheme
+q + juiceGlass +
+  geom_histogram(aes(price), 
+                   fill = transpa(oj["orange5"], 120), 
+                   color = oj["orange5"])
+  
+#Redrock Canyon color scheme
+q + sandstone +
+  geom_histogram(aes(price), 
+                   fill = transpa(redrock["yucca"], 120), 
+                   color = redrock["yucca"])
+  
+
+#blkBoard color scheme
+q + dustyBlk +
+  geom_histogram(aes(price), 
+                   fill = transpa(blkboard["green"], 120), 
+                   color = blkboard["green"])
+  
+
+#JMBN color scheme
+q + digiturf +
+  geom_histogram(aes(price), 
+                   fill = transpa(jmbn["highlighter"], 120), 
+                   color = jmbn["highlighter"])
+  
+
+#IBM color scheme
+q + napkin + 
+  geom_histogram(aes(price), 
+                   fill = transpa(ibm["purple"], 120), 
+                   color = ibm["purple"])
+#----
+
+
+#Boxplot examples
+#----
+myLabs <- labs(title = "Distribution of Diamond Prices by Color",
+               subtitle = "A sample of observations from diamonds data",
+               caption = "Data Source: ggplot2::diamonds",
+               tag = "Fig 1.2",
+               x = "Price (USD)",
+               y = "Color Grade")
+
+q <- ggplot(d) + myLabs
+
+
+#Orange Juice color scheme
+grad7 <- colorRampPalette(oj[c("orange1","orange5")])(7)
+
+q + juiceGlass +
+  geom_boxplot(aes(price, color), 
+                   fill = grad7, 
+                   color = oj["orangeK"])
+
+#Redrock Canyon color scheme
+grad7 <- colorRampPalette(redrock[c("cloud","sky","night")])(7)
+
+q + sandstone +
+  geom_boxplot(aes(price, color), 
+               fill = grad7)
+
+#blkBoard color scheme
+grad7 <- colorRampPalette(blkboard[c("purple","blue")])(7)
+
+q + dustyBlk +
+  geom_boxplot(aes(price, color), 
+               fill = grad7,
+               color = "white")
+
+
+#JMBN color scheme
+grad7 <- colorRampPalette(jmbn[c("periwinkle","navy")])(7)
+
+q + digiturf +
+  geom_boxplot(aes(price, color), 
+               fill = grad7,
+               color = jmbn["blush"])
+
+
+#IBM color scheme
+grad7 <- colorRampPalette(ibm[c("yellow","orange")])(7)
+
+q + napkin +
+  geom_boxplot(aes(price, color), 
+               fill = grad7)
+
+#----
+
+
+
+#Scatterplot examples
+#----
+myLabs <- labs(title = "Diamond Prices by Weight",
+               subtitle = "A sample of observations from diamonds data",
+               caption = "Data Source: ggplot2::diamonds",
+               tag = "Fig 1.3",
+               x = "Weight (Carats)",
+               y = "Price (USD)")
+
+q <- ggplot(d) + myLabs
+
+
+#Orange Juice color scheme
+grad7 <- colorRampPalette(oj[c("orange1","orange5")])(7)
+names(grad7) <- levels(d$color)
+
+q + juiceGlass +
+  geom_point(aes(x = carat, y = price, color = color)) + 
+  scale_color_manual(values = grad7)
+
+#Redrock Canyon color scheme
+grad7 <- colorRampPalette(redrock[c("cloud","sky","night")])(7)
+names(grad7) <- levels(d$color)
+
+q + sandstone +
+  geom_point(aes(x = carat, y = price, color = color)) + 
+  scale_color_manual(values = grad7)
+
+#blkBoard color scheme
+grad7 <- colorRampPalette(blkboard[c("purple","blue")])(7)
+names(grad7) <- levels(d$color)
+
+q + dustyBlk +
+  geom_point(aes(x = carat, y = price, color = color)) + 
+  scale_color_manual(values = grad7)
+
+#JMBN color scheme
+grad7 <- colorRampPalette(jmbn[c("periwinkle","navy")])(7)
+names(grad7) <- levels(d$color)
+
+q + digiturf +
+  geom_point(aes(x = carat, y = price, color = color)) + 
+  scale_color_manual(values = grad7)
+
+#IBM color scheme
+grad7 <- colorRampPalette(ibm[c("yellow","orange")])(7)
+names(grad7) <- levels(d$color)
+
+q + napkin +
+  geom_point(aes(x = carat, y = price, color = color)) + 
+  scale_color_manual(values = grad7)
+#----
+
+
 
