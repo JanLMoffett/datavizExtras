@@ -5,64 +5,64 @@ Colors, Themes and Functions to use with ggplot2 for R.
 
 **oj** - a named vector of 14 colors: orange0, orange1, orange2, orange3, orange4, orange5, orangeK, blue0, blue1, blue2, blue3, blue4, blue5, blueK.
 
-<img src="orangeJuiceColors.png" width="250">
+<img src="images/orangeJuiceColors.png" width="250">
 
 **blkboard** - a named vector of 7 colors: orange, yellow, green, blue, purple, greyDK, greyLT.
 
-<img src="blkboardColors.png" width="250">
+<img src="images/blkboardColors.png" width="250">
 
 **jmbn** - a named vector of 11 colors: hunter, turf, mint, turquoise, highlighter, rose, blush, thistle, mauve, periwinkle, navy.
 
-<img src="jmbnColors.png" width="250">
+<img src="images/jmbnColors.png" width="250">
 
 **redrock** - a named vector of 12 colors: mud, cocoa, stone, sand, cinnamon, terracotta, moss, cactus, yucca, cloud, sky, night.
 
-<img src="RedRockCanyonColors.png" width="250">
+<img src="images/RedRockCanyonColors.png" width="250">
 
 **ibm** - a named vector of 5 colors: blue, purple, pink, orange, yellow.
 
-<img src="ibmColors.png" width="250">
+<img src="images/ibmColors.png" width="250">
 
 ## [extraThemes.R](extraThemes.R)
 
 **juiceGlass** - a ggplot2 theme; a clean, light blue theme that goes well with orange.
 
 <div>
-  <img src="exampleHist_juiceglass.png" height="200">
-  <img src="exampleBox_juiceglass.png" height="200">
-  <img src="exampleScatter_juiceglass.png" height="200">
+  <img src="images/exampleHist_juiceglass.png" height="200">
+  <img src="images/exampleBox_juiceglass.png" height="200">
+  <img src="images/exampleScatter_juiceglass.png" height="200">
 </div>
 
 **napkin** - a ggplot2 theme; a mostly white minimalist theme.
 
 <div>
-  <img src="exampleHist_napkin.png" height="200">
-  <img src="exampleBox_napkin.png" height="200">
-  <img src="exampleScatter_napkin.png" height="200">
+  <img src="images/exampleHist_napkin.png" height="200">
+  <img src="images/exampleBox_napkin.png" height="200">
+  <img src="images/exampleScatter_napkin.png" height="200">
 </div>
 
 **sandstone** - a ggplot2 theme; a theme for the redrock color scheme.
 
 <div>
-  <img src="exampleHist_sandstone.png" height="200">
-  <img src="exampleBox_sandstone.png" height="200">
-  <img src="exampleScatter_sandstone.png" height="200">
+  <img src="images/exampleHist_sandstone.png" height="200">
+  <img src="images/exampleBox_sandstone.png" height="200">
+  <img src="images/exampleScatter_sandstone.png" height="200">
 </div>
 
 **dustyBlk** - a ggplot2 theme; a theme for the blkboard color scheme.
 
 <div>
-  <img src="exampleHist_dustyBlk.png" height="200">
-  <img src="exampleBox_dustyBlk.png" height="200">
-  <img src="exampleScatter_dustyBlk.png" height="200">
+  <img src="images/exampleHist_dustyBlk.png" height="200">
+  <img src="images/exampleBox_dustyBlk.png" height="200">
+  <img src="images/exampleScatter_dustyBlk.png" height="200">
 </div>
 
 **digiturf** - a ggplot2 theme; a theme for the jmbn color scheme.
 
 <div>
-  <img src="exampleHist_digiturf.png" height="200">
-  <img src="exampleBox_digiturf.png" height="200">
-  <img src="exampleScatter_digiturf.png" height="200">
+  <img src="images/exampleHist_digiturf.png" height="200">
+  <img src="images/exampleBox_digiturf.png" height="200">
+  <img src="images/exampleScatter_digiturf.png" height="200">
 </div>
 
 ## [datavizExtras.R](datavizExtras.R)
